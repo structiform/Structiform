@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - STRUCTIFORM</title>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #4a5568;
+            --accent-color: #f97316;
+        }
+    </style>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'system';
+            const savedColor = localStorage.getItem('primaryColor') || '#ff6b35';
+            document.documentElement.style.setProperty('--primary-color', savedColor);
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                document.body.style.backgroundColor = '#1a202c';
+                document.body.style.color = '#f7fafc';
+            } else if (savedTheme === 'light') {
+                document.body.style.backgroundColor = '#ffffff';
+                document.body.style.color = '#1a202c';
+            } else {
+                const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (isDark) {
+                    document.body.classList.add('dark');
+                    document.body.style.backgroundColor = '#1a202c';
+                    document.body.style.color = '#f7fafc';
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/admin/AdminSidebar.js"></script>
+    <script type="text/babel" src="components/admin/TaskModal.js"></script>
+    <script type="text/babel" src="components/admin/TaskManager.js"></script>
+    <script type="text/babel" src="components/admin/ScheduleManager.js"></script>
+    <script type="text/babel" src="components/admin/UserManagement.js"></script>
+    <script type="text/babel" src="components/admin/BackupCenter.js"></script>
+    <script type="text/babel" src="components/admin/ActivityLogs.js"></script>
+    <script type="text/babel" src="components/admin/PerformanceDashboard.js"></script>
+    <script type="text/babel" src="components/admin/Analytics.js"></script>
+    <script type="text/babel" src="components/admin/NotificationCenter.js"></script>
+    <script type="text/babel" src="components/admin/BookingManager.js"></script>
+    <script type="text/babel" src="components/admin/ProjectManager.js"></script>
+    <script type="text/babel" src="components/admin/ContactEditor.js"></script>
+    <script type="text/babel" src="components/admin/EmailDashboard.js"></script>
+    <script type="text/babel" src="components/admin/ThemeSettings.js"></script>
+    <script type="text/babel" src="admin-app.js"></script>
+</body>
+</html>
